@@ -1,0 +1,41 @@
+{{# if orders }}
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h3 style="text-align:center"> Account's Payment History </h3>
+        <h4 style="text-align:center">({{user.email}})</h4>
+      
+        <hr>
+        {{# each orders }}
+         <div class="panel panel-info">
+            <div class="panel panel-primary">
+           <div class="panel-heading">
+                  <p>Account's name: <i>{{ this.name }}</i>   |   Address: <i>{{ this.address }}</i>   |   Datetime: <i>{{ this.created_at }}</i></p>
+           </div>
+           </div>
+         <div class="panel-body">
+            <ul class="list-group">
+                {{# each this.items }}
+               <li class="list-group-item">
+                <span class="badge">${{ this.price }}</span>
+                Product's name: {{ this.item.title }} | Quantity: {{ this.qty }} item(s)
+               </li>
+               {{/each}}
+             </ul>
+        </div>
+       <div class="panel-footer">
+         <strong>Total Price: ${{ this.cart.totalPrice }}</strong>
+       </div>
+      </div>
+    {{/each}}
+</div>
+</div>
+{{else}}
+<div class="row">
+    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3" style=" text-align: center">
+        <h3 style="text-align:center"> Account's Payment History ({{user.email}})</h3>
+          <hr>
+        <h3>You don't have any shopping.</h3>
+        <h3><a href="/">Go back to shopping!</a></h3>
+    </div>
+</div>
+{{/if}}

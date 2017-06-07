@@ -1,0 +1,17 @@
+body{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.thumbnail img {
+    max-height: 230px;
+}
+
+.thumbnail .description {
+    color: #337ab7;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 16px;
+}
